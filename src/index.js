@@ -1,103 +1,146 @@
 module.exports = function toReadable (number) {
     let result='';
     let temp = String(number).split('');
+
+    if (temp.length==1){
+        if (temp[0]==0)
+                return 'zero';
+    }
     if (temp.length==3){
-        switch (temp[0]){
+        switch (Number(temp[0])){
             case 1:
-                result+=' one';
+                result+='one';
+                break;
             case 2:
-                result+=' two';
+                result+='two';
+                break;
             case 3:
-                result+=' three';
+                result+='three';
+                break;
             case 4:
-                result+=' four';
+                result+='four';
+                break;
             case 5:
-                result+=' five';
+                result+='five';
+                break;
             case 6:
-                result+=' six';
+                result+='six';
+                break;
             case 7:
-                result+=' seven';
+                result+='seven';
+                break;
             case 8:
-                result+=' eight';
+                result+='eight';
+                break;
             case 9:
-                result+=' nine';
+                result+='nine';
+                break;
         };
-        result+=' hundred';
+        result+=' ';
+        result+='hundred';
+        result+=' ';
         temp.shift();
     }
     if (temp.length==2){
-        switch (temp[0]){
+        switch (Number(temp[0])){
             case 1:
-                switch (temp[1]){
+                switch (Number(temp[1])){
                     case 0:
-                        result+=' ten';
+                        result+='ten';
+                        break;
                     case 1:
-                        result+=' eleven';
+                        result+='eleven';
+                        break;
                     case 2:
-                        result+=' twelve';
+                        result+='twelve';
+                        break;
                     case 3:
-                        result+=' thirteen';
+                        result+='thirteen';
+                        break;
                     case 4:
-                        result+=' fourteen';
+                        result+='fourteen';
+                        break;
                     case 5:
-                        result+=' fifteen';
+                        result+='fifteen';
+                        break;
                     case 6:
-                        result+=' sixteen';
+                        result+='sixteen';
+                        break;
                     case 7:
-                        result+=' seventeen';
+                        result+='seventeen';
+                        break;
                     case 8:
-                        result+=' eighteen';
+                        result+='eighteen';
+                        break;
                     case 9:
-                        result+=' nineteen';
+                        result+='nineteen';
+                        break;
                 };
+                break;
             case 2:
-                result+=' twenty';
+                result+='twenty';
+                break;
             case 3:
-                result+=' thirty';
+                result+='thirty';
+                break;
             case 4:
-                result+=' forty';
+                result+='forty';
+                break;
             case 5:
-                result+=' fifty';
+                result+='fifty';
+                break;
             case 6:
-                result+=' sixty';
+                result+='sixty';
+                break;
             case 7:
-                result+=' seventy';
+                result+='seventy';
+                break;
             case 8:
-                result+=' eighty';
+                result+='eighty';
+                break;
             case 9:
-                result+=' ninety';
+                result+='ninety';
+                break;
         }
-        if (temp[0]==1){
-            temp.pop();
-            temp.pop();
-        }
-        if (temp[0]!=1){
+        if (Number(temp[0])==1){
+            temp.shift();
             temp.shift();
         }
+        if (Number(temp[0])!=1){
+            temp.shift();
+        }
+        result+=' ';
     }
     if (temp.length==1){
-        switch (temp[0]){
-            case 0:
-                result+=' zero';
+        switch (Number(temp[0])){
             case 1:
-                result+=' one';
+                result+='one';
+                break;
             case 2:
-                result+=' two';
+                result+='two';
+                break;
             case 3:
-                result+=' three';
+                result+='three';
+                break;
             case 4:
-                result+=' four';
+                result+='four';
+                break;
             case 5:
-                result+=' five';
+                result+='five';
+                break;
             case 6:
-                result+=' six';
+                result+='six';
+                break;
             case 7:
-                result+=' seven';
+                result+='seven';
+                break;
             case 8:
-                result+=' eight';
+                result+='eight';
+                break;
             case 9:
-                result+=' nine';
+                result+='nine';
+                break;
         };
-    }
-    return result;
+    }    
+    return result.replace(/\s+/g, ' ').trim();
 }
